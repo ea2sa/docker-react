@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t stephengrider/docker-react -f Dockerfile.dev .
+  - docker build -t ea2sa/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run stephengrider/docker-react npm run test -- --coverage
+  - docker run ea2sa/docker-react npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
@@ -20,4 +20,3 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
     secure: "$AWS_SECRET_KEY"
-

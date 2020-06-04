@@ -6,27 +6,19 @@ before_install:
   - docker build -t ea2sa/docker-react -f Dockerfile.dev .
 
 script:
-<<<<<<< HEAD
   - docker run ea2sa/docker-react npm run test -- --coverage
-=======
   - docker run -e CI=true ea2sa/docker-react npm run test -- --coverage
 
 language: generic
->>>>>>> master
 
 deploy:
   provider: elasticbeanstalk
-  region: "us-west-1"
+  region: "us-west-2"
   app: "docker-react"
   env: "DockerReact-env"
-  bucket_name: "elasticbeanstalk-us-west-1-819295806321"
+  bucket_name: "elasticbeanstalk-us-west-2-819295806321"
   bucket_path: "DockerReactApplication"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
-<<<<<<< HEAD
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
-=======
   secret_access_key: "$AWS_SECRET_KEY"
->>>>>>> master
